@@ -17,7 +17,7 @@ jobs:
       - name: Read and update version in json
         uses: actions/replace-text@v1
         with:
-          path: 'path/to/your/file.json'
+          path: 'LivelyInfo.json'
           find: '{{ver}}'
           replace: ${{ steps.get_version.outputs.version }}
 
