@@ -1,12 +1,12 @@
 {
   "AppVersion": "1.0.0.0",
-  "Title": "Alve's Town",
+  "Title": "Alve's Town - Revived",
   "Thumbnail": "thumbnail.jpg",
   "Preview": "preview.gif",
-  "Desc": "Alve's Town: Pixelart city view with realtime day-night cycle",
-  "Author": "Gabrz",
-  "License": "",
-  "Contact": "https://github.com/gabrz/lively-alve",
+  "Desc": "Alve's Town - Revived: Pixelart city view with realtime day-night cycle",
+  "Author": "BrandgrandReal",
+  "License": "MIT",
+  "Contact": "https://github.com/BrandgrandRealMe/lively-alve-revived",
   "Type": 1,
   "FileName": "index.html"
 }
