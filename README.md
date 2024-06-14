@@ -1,4 +1,4 @@
-# lively-alve
+# lively-alve-revived
 Alve's Town animated wallpaper for [Lively](https://www.rocksdanister.com/lively/).
 
 Best suited for Wide-Screen but it is scalable/cropable to other resolutions.
