@@ -1,0 +1,35 @@
+name: Prepare Release Package
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Get release version
+        id: get_version
+        run: echo "::set-output name=version ${{ github.event.release.tag_name }}"
+
+      - name: Read and update version in json
+        uses: actions/replace-text@v1
+        with:
+          path: 'path/to/your/file.json'
+          find: '{{ver}}'
+          replace: ${{ steps.get_version.outputs.version }}
+
+      - name: Create archive
+        run: |
+          mkdir archive
+          cp -r * archive/
+          cd archive
+          zip -r ../release.zip .
+
+      - name: Upload release asset
+        uses: actions/upload-artifact@v3
+        with:
+          name: release.zip
+          path: ../release.zip
