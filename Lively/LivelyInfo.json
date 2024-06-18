@@ -1,5 +1,5 @@
 {
-  "AppVersion": "1.0.0.0",
+  "AppVersion": "{{ver}}",
   "Title": "Alve's Town - Revived",
   "Thumbnail": "thumbnail.jpg",
   "Preview": "preview.gif",

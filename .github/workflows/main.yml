@@ -17,7 +17,7 @@ jobs:
       - name: Update JSON with version
         uses: replace/replace@v1
         with:
-          path: your_file.json  # Replace with the path to your JSON file
+          path: Lively/LivelyInfo.json  # Replace with the path to your JSON file
           replace: '{{ver}}'
           with: ${{ steps.get_version.outputs.VERSION }}
 
