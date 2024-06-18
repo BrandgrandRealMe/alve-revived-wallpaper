@@ -31,51 +31,62 @@ const weatherIcons = {
 // Function that positions the date container when the Scale property is set
 function positionWeatherContainer(val) {
   // Compensate manual scaling/cropping
-  weatherContainer.style.paddingTop=(11.8-(val*0.23)) + "vw";
-  weatherIconSvg.style.paddingRight=(17.12-(val*0.35)) + "vw";
-  weatherIconSvg.style.width=(3-(val*0.06)) + "vw";
-  weatherIconSvg.style.height=(3-(val*0.06)) + "vw";
+  weatherContainer.style.paddingTop = (11.8 - (val * 0.23)) + "vw";
+  weatherIconSvg.style.paddingRight = (17.12 - (val * 0.35)) + "vw";
+  weatherIconSvg.style.width = (3 - (val * 0.06)) + "vw";
+  weatherIconSvg.style.height = (3 - (val * 0.06)) + "vw";
 
-  weatherDescription.style.paddingRight=(17.12-(val*0.35)) + "vw";
-  weatherDescription.style.marginTop=(0.25-(val*0.003)) + "vw";
+  weatherDescription.style.paddingRight = (17.12 - (val * 0.35)) + "vw";
+  weatherDescription.style.marginTop = (0.25 - (val * 0.003)) + "vw";
 
-  weatherTemp.style.marginTop=(-4+(val*0.073)) + "vw";
-  weatherTemp.style.marginLeft=(-12+(val*0.25)) + "vw";
+  weatherTemp.style.marginTop = (-4 + (val * 0.073)) + "vw";
+  weatherTemp.style.marginLeft = (-12 + (val * 0.25)) + "vw";
 
   var fontScale = 0.02;
-  weatherDescription.style.fontSize=(0.4-(val*fontScale*0.4))+"vw";
-  weatherTemp.style.fontSize=(0.6-(val*fontScale*0.6))+"vw";
+  weatherDescription.style.fontSize = (0.4 - (val * fontScale * 0.4)) + "vw";
+  weatherTemp.style.fontSize = (0.6 - (val * fontScale * 0.6)) + "vw";
 
 }
 
 // Get the weather data form openweathermap
-function getWeather() {
+async function getWeather() {
   // Don't get Weather when not all request parameters are filled
-  if (root.apiData.cityName ==="" || root.apiData.cityName === "city, country" || root.apiData.apiKey ==="" || root.apiData.apiKey ==="openweathermap.org key") {
+  if (root.apiData.cityName === "" || root.apiData.cityName === "city, country" || root.apiData.apiKey === "" || root.apiData.apiKey === "openweathermap.org key") {
     root.weatherData = getDefaultWeatherData(root.defaultSunrise, root.defaultSunset);
     showWeather(root.weatherData);
     return
   }
 
-  var weatherEnd=root.apiData.cityName+"&units="+root.locale.units+"&APPID="+root.apiData.apiKey+"&lang="+root.locale.locale.substring(0,2);
-  var weatherURL="https://api.openweathermap.org/data/2.5/weather?q="+weatherEnd;
-
-  //fetch current weather data json
-  fetch(weatherURL)
-    .then(response=>{
-      if(response.status!=200){
-        // API Call failed, set default data
-        root.weatherData = getDefaultWeatherData(root.defaultSunrise, root.defaultSunset);
-        showWeather(root.weatherData);
-      }
-      else{
-        response.json().then(data=>showWeather(data));
-      }
+  // Get lat and lng
+  var lat = '';
+  var lng = '';
+  await fetch("https://maps.googleapis.com/maps/api/geocode/json?address="+root.apiData.cityName+'&key='+API_KEY)
+    .then(response => response.json())
+    .then(data => {
+      lat = data.results.geometry.location.lat;
+      lng = data.results.geometry.location.lng;
     })
+
+
+var weatherEnd = "?lat=" + lat + "&lon=" + lng + "&units=" + root.locale.units + "&APPID=" + root.apiData.apiKey + "&lang=" + root.locale.locale.substring(0, 2);
+var weatherURL = "https://api.openweathermap.org/data/2.5/weather" + weatherEnd;
+
+//fetch current weather data json
+await fetch(weatherURL)
+  .then(response => {
+    if (response.status != 200) {
+      // API Call failed, set default data
+      root.weatherData = getDefaultWeatherData(root.defaultSunrise, root.defaultSunset);
+      showWeather(root.weatherData);
+    }
+    else {
+      response.json().then(data => showWeather(data));
+    }
+  })
 }
 
 // Set default weather data, for when API is not used or request fails
-function getDefaultWeatherData(sunrise, sunset){
+function getDefaultWeatherData(sunrise, sunset) {
   return {
     "main": {
       "temp": 0
@@ -93,31 +104,30 @@ function getDefaultWeatherData(sunrise, sunset){
   };
 }
 
-function calcSunSetRise(time){
-  return Math.floor((new Date()).setHours(time.split(":")[0],time.split(":")[1])/1000)
+function calcSunSetRise(time) {
+  return Math.floor((new Date()).setHours(time.split(":")[0], time.split(":")[1]) / 1000)
 }
 
 // Show Weather
-function showWeather(data){
+function showWeather(data) {
   // Adjust scene to weather
   weatherCorrScene()
-  
+
   // Set weather data 
   root.weatherData = data;
-  weatherIcon.setAttribute("d",weatherIcons[data.weather[0].icon]);
-  document.getElementById("weatherTemp").innerHTML= leadingZero(Math.round(data.main.temp)) + "&deg;";
+  weatherIcon.setAttribute("d", weatherIcons[data.weather[0].icon]);
+  document.getElementById("weatherTemp").innerHTML = leadingZero(Math.round(data.main.temp)) + "&deg;";
   weatherDescription.innerHTML = data.weather[0].description;
 }
 
-function leadingZero(val){
-	if(val<10 && val>=0)
-	{
-		return '0'+val;
-	}
-  else if(val>-10 && val<=0){
-    return '-0'+Math.abs(val);
+function leadingZero(val) {
+  if (val < 10 && val >= 0) {
+    return '0' + val;
   }
-	else{
-		return val;
-	}
+  else if (val > -10 && val <= 0) {
+    return '-0' + Math.abs(val);
+  }
+  else {
+    return val;
+  }
 }

@@ -48,7 +48,7 @@
   },
   "weatherCityInput": {
     "text": "Location",
-    "help": "Enter your city, country",
+    "help": "Enter your zipcode",
     "type": "textbox",
     "value": "city, country"
   },
