@@ -14,7 +14,7 @@ jobs:
         id: get_version
         run: echo "::set-output name=VERSION::${{ github.event.release.tag_name }}"
 
-      - name: Update JSON with version
+      - name: Update Lively JSON with version
         uses: jacobtomlinson/gha-find-replace@v3
         with:
           include: Lively/LivelyInfo.json  # Replace with the path to your JSON file
@@ -22,15 +22,37 @@ jobs:
           replace: ${{ steps.get_version.outputs.VERSION }}
           regex: false
 
-      - name: Zip folder
+      - name: Update WE JSON with version
+        uses: jacobtomlinson/gha-find-replace@v3
+        with:
+          include: WallpaperEngine/project.json  # Replace with the path to your JSON file
+          find: '{{ver}}'
+          replace: ${{ steps.get_version.outputs.VERSION }}
+          regex: false
+  
+
+      - name: Zip Lively folder
         uses: montudor/action-zip@v1
         with:
           args: zip -qq -r alve-revived-lively-${{ steps.get_version.outputs.VERSION }}.zip Lively
 
+      - name: Zip WE folder
+        uses: montudor/action-zip@v1
+        with:
+          args: zip -qq -r alve-revived-WallpaperEngine-${{ steps.get_version.outputs.VERSION }}.zip WallpaperEngine
+
+
       - name: Upload Lively to Github release
-        id: upload-release-asset 
         uses: Shopify/upload-to-release@v2.0.0
         with:
           name: alve-revived-lively-${{ steps.get_version.outputs.VERSION }}
           path: alve-revived-lively-${{ steps.get_version.outputs.VERSION }}.zip
           repo-token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Upload WE to Github release
+        uses: Shopify/upload-to-release@v2.0.0
+        with:
+          name: alve-revived-WallpaperEngine-${{ steps.get_version.outputs.VERSION }}
+          path: alve-revived-WallpaperEngine-${{ steps.get_version.outputs.VERSION }}.zip
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+

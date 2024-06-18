@@ -288,5 +288,5 @@
 	"preview" : "preview.gif",
 	"title" : "Alve's Town - Revived",
 	"type" : "web",
-	"version" : 0
+	"version" : "{{ver}}"
 }
