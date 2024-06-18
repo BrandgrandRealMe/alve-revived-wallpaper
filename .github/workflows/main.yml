@@ -1,35 +1,34 @@
-name: Prepare Release Package
+name: Release ZIPer and Version adder
 
-on:
+on: 
   release:
     types: [published]
 
 jobs:
-  package:
+  update_and_zip:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
 
       - name: Get release version
         id: get_version
-        run: echo "::set-output name=version ${{ github.event.release.tag_name }}"
+        run: echo "::set-output name=VERSION::${{ github.event.release.tag_name }}"
 
-      - name: Read and update version in json
-        uses: actions/replace-text@v1
+      - name: Update JSON with version
+        uses: replace/replace@v1
         with:
-          path: 'LivelyInfo.json'
-          find: '{{ver}}'
-          replace: ${{ steps.get_version.outputs.version }}
+          path: your_file.json  # Replace with the path to your JSON file
+          replace: '{{ver}}'
+          with: ${{ steps.get_version.outputs.VERSION }}
 
-      - name: Create archive
-        run: |
-          mkdir archive
-          cp -r * archive/
-          cd archive
-          zip -r ../release.zip .
+      - name: Zip folder
+        uses: mazda/github-action-zip@v2
+        with:
+          files: Lively/*  # Replace with the path to your folder
+          filename: lively-${{ steps.get_version.outputs.VERSION }}.zip  # Replace with desired zip filename
 
-      - name: Upload release asset
+      - name: Add zip to release assets
         uses: actions/upload-artifact@v3
         with:
-          name: release.zip
-          path: ../release.zip
+          name: lively-wallpaper-${{ steps.get_version.outputs.VERSION }}
+          path: lively-${{ steps.get_version.outputs.VERSION }}.zip
