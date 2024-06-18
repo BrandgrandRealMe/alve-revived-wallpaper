@@ -41,16 +41,31 @@
     "value": false
   },
   "weatherApiInput": {
-    "text": "API Key",
+    "text": "Weather API Key",
     "help": "Enter your openweathermap API Key",
     "type": "textbox",
     "value": "openweathermap.org key"
   },
+  "mapApiInput": {
+    "text": "Map API Key",
+    "help": "Enter your mapbox API Key",
+    "type": "textbox",
+    "value": "mapbox.com key"
+  },
   "weatherCityInput": {
     "text": "Location",
-    "help": "Enter your zipcode",
+    "help": "Enter your Address or Country and Zipcode",
     "type": "textbox",
-    "value": "city, country"
+    "value": "Address"
+  },
+  "tempUnitInput": {
+    "type": "dropdown",
+    "value": 1,
+    "text": "Select your temputure unit.",
+    "items": [
+      "℉",
+      "℃"
+    ]
   },
   "weatherRefreshFreq": {
     "text": "Refresh Frequency",

@@ -51,7 +51,7 @@ function positionWeatherContainer(val) {
 // Get the weather data form openweathermap
 async function getWeather() {
   // Don't get Weather when not all request parameters are filled
-  if (root.apiData.cityName === "" || root.apiData.cityName === "city, country" || root.apiData.apiKey === "" || root.apiData.apiKey === "openweathermap.org key") {
+  if (root.apiData.cityName === "" || root.apiData.cityName === "city, country" || root.apiData.mapapiKey === "" || root.apiData.mapapiKey === "mapbox.com key" || root.apiData.apiKey === "" || root.apiData.apiKey === "openweathermap.org key") {
     root.weatherData = getDefaultWeatherData(root.defaultSunrise, root.defaultSunset);
     showWeather(root.weatherData);
     return
@@ -60,29 +60,47 @@ async function getWeather() {
   // Get lat and lng
   var lat = '';
   var lng = '';
-  await fetch("https://maps.googleapis.com/maps/api/geocode/json?address="+root.apiData.cityName+'&key='+API_KEY)
+
+  var zipandcountry = root.apiData.cityName;
+  var zipcode = zipandcountry.split(" ")[0];
+  var country = zipandcountry.split(" ")[1];
+  var mapURL = `https://api.mapbox.com/geocoding/v5/mapbox.places/${country}%20${zipcode}.json?access_token=${root.apiData.mapapiKey}`;
+
+  await fetch(mapURL)
     .then(response => response.json())
     .then(data => {
-      lat = data.results.geometry.location.lat;
-      lng = data.results.geometry.location.lng;
+      const features = data.features;
+      if (features && features.length > 0) {
+        const firstFeature = features[0];
+        const geometry = firstFeature.geometry;
+        if (geometry && geometry.coordinates) {
+          const [longitude, latitude] = geometry.coordinates; // Destructuring assignment
+          lat = latitude;
+          lng = longitude;
+          console.log(`Latitude: ${latitude}, Longitude: ${longitude}`);
+        } else {
+          console.log("No geometry data found in the response.");
+        }
+      } else {
+        console.log(`No results found for the zip code (${zipcode}).`);
+      }
     })
+  var unit = root.apiData.tempUnit === 0 ? "Imperial" : "metric";
+  var weatherEnd = "?lat=" + lat + "&lon=" + lng + "&units=" + unit + "&APPID=" + root.apiData.apiKey + "&lang=" + root.locale.locale.substring(0, 2);
+  var weatherURL = "https://api.openweathermap.org/data/2.5/weather" + weatherEnd;
 
-
-var weatherEnd = "?lat=" + lat + "&lon=" + lng + "&units=" + root.locale.units + "&APPID=" + root.apiData.apiKey + "&lang=" + root.locale.locale.substring(0, 2);
-var weatherURL = "https://api.openweathermap.org/data/2.5/weather" + weatherEnd;
-
-//fetch current weather data json
-await fetch(weatherURL)
-  .then(response => {
-    if (response.status != 200) {
-      // API Call failed, set default data
-      root.weatherData = getDefaultWeatherData(root.defaultSunrise, root.defaultSunset);
-      showWeather(root.weatherData);
-    }
-    else {
-      response.json().then(data => showWeather(data));
-    }
-  })
+  //fetch current weather data json
+  await fetch(weatherURL)
+    .then(response => {
+      if (response.status != 200) {
+        // API Call failed, set default data
+        root.weatherData = getDefaultWeatherData(root.defaultSunrise, root.defaultSunset);
+        showWeather(root.weatherData);
+      }
+      else {
+        response.json().then(data => showWeather(data));
+      }
+    })
 }
 
 // Set default weather data, for when API is not used or request fails
@@ -113,10 +131,12 @@ function showWeather(data) {
   // Adjust scene to weather
   weatherCorrScene()
 
+  var unit = root.apiData.tempUnit === 0 ? "F" : "C";
+
   // Set weather data 
   root.weatherData = data;
   weatherIcon.setAttribute("d", weatherIcons[data.weather[0].icon]);
-  document.getElementById("weatherTemp").innerHTML = leadingZero(Math.round(data.main.temp)) + "&deg;";
+  document.getElementById("weatherTemp").innerHTML = leadingZero(Math.round(data.main.temp)) + "&deg;" + unit;
   weatherDescription.innerHTML = data.weather[0].description;
 }
 

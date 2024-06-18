@@ -31,6 +31,12 @@ function livelyPropertyListener(name, val) {
     case "weatherApiInput":
       root.apiData.apiKey = val;
       break;
+    case "mapApiInput":
+      root.apiData.mapapiKey = val;
+      break;
+    case "tempUnitInput":
+      root.apiData.tempUnit = val;
+      break;
     case "weatherRefreshFreq":
       root.weatherRefreshRate = val;
       clearInterval(weatherInterval);
