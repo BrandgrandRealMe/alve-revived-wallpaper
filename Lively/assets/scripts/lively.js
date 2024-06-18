@@ -25,16 +25,16 @@ function livelyPropertyListener(name, val) {
       root.showWeather = val;
       weatherContainer.style.visibility = val ? "visible" : "hidden";
       break;
-    case "weatherCityInput":
-      root.apiData.cityName = val;
+    case "weatherAddressInput":
+      root.apiData.address = val;
       break;    
     case "weatherApiInput":
       root.apiData.apiKey = val;
       break;
-    case "mapApiInput":
+    case "weathermapApiInput":
       root.apiData.mapapiKey = val;
       break;
-    case "tempUnitInput":
+    case "weathertempUnitInput":
       root.apiData.tempUnit = val;
       break;
     case "weatherRefreshFreq":
@@ -60,14 +60,14 @@ function livelyPropertyListener(name, val) {
     case "miscSunrise":
       root.defaultSunrise = val;
       // Re-set default values of weather (when api is not used)
-      if (root.apiData.cityName ==="" || root.apiData.cityName === "city, country" || root.apiData.apiKey ==="" || root.apiData.apiKey ==="openweathermap.org key") {
+      if (root.apiData.address === "" || root.apiData.address === "132 My Street, Kingston, New York 12401 or US 12401" || root.apiData.mapapiKey === "" || root.apiData.mapapiKey === "mapbox.com key" || root.apiData.apiKey === "" || root.apiData.apiKey === "openweathermap.org key") {
         reDrawWeatherScene();
       }
       break;
     case "miscSunset":
       root.defaultSunset = val;
       // Re-set default values of weather (when api is not used)
-      if (root.apiData.cityName ==="" || root.apiData.cityName === "city, country" || root.apiData.apiKey ==="" || root.apiData.apiKey ==="openweathermap.org key") {
+      if (root.apiData.address === "" || root.apiData.address === "132 My Street, Kingston, New York 12401 or US 12401" || root.apiData.mapapiKey === "" || root.apiData.mapapiKey === "mapbox.com key" || root.apiData.apiKey === "" || root.apiData.apiKey === "openweathermap.org key") {
         reDrawWeatherScene();
       }
       break;

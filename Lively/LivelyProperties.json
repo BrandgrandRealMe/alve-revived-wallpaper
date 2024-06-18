@@ -46,21 +46,21 @@
     "type": "textbox",
     "value": "openweathermap.org key"
   },
-  "mapApiInput": {
+  "weathermapApiInput": {
     "text": "Map API Key",
     "help": "Enter your mapbox API Key",
     "type": "textbox",
     "value": "mapbox.com key"
   },
-  "weatherCityInput": {
+  "weatherAddressInput": {
     "text": "Location",
     "help": "Enter your Address or Country and Zipcode",
     "type": "textbox",
-    "value": "Address"
+    "value": "132 My Street, Kingston, New York 12401 or US 12401"
   },
-  "tempUnitInput": {
+  "weathertempUnitInput": {
     "type": "dropdown",
-    "value": 1,
+    "value": 0,
     "text": "Select your temputure unit.",
     "items": [
       "℉",

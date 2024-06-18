@@ -7,7 +7,7 @@ const root = {
   defaultSunrise: "05:20",
   defaultSunset: "22:00",
   apiData: {
-    "cityName": "",
+    "address": "",
     "apiKey": ""
   },
   weatherData: getDefaultWeatherData("05:20", "22:00"),

@@ -51,7 +51,7 @@ function positionWeatherContainer(val) {
 // Get the weather data form openweathermap
 async function getWeather() {
   // Don't get Weather when not all request parameters are filled
-  if (root.apiData.cityName === "" || root.apiData.cityName === "city, country" || root.apiData.mapapiKey === "" || root.apiData.mapapiKey === "mapbox.com key" || root.apiData.apiKey === "" || root.apiData.apiKey === "openweathermap.org key") {
+  if (root.apiData.address === "" || root.apiData.address === "132 My Street, Kingston, New York 12401 or US 12401" || root.apiData.mapapiKey === "" || root.apiData.mapapiKey === "mapbox.com key" || root.apiData.apiKey === "" || root.apiData.apiKey === "openweathermap.org key") {
     root.weatherData = getDefaultWeatherData(root.defaultSunrise, root.defaultSunset);
     showWeather(root.weatherData);
     return
@@ -61,7 +61,8 @@ async function getWeather() {
   var lat = '';
   var lng = '';
 
-  var zipandcountry = root.apiData.cityName;
+  var zipandcountry = root.apiData.address;
+  console.log(zipandcountry)
   var zipcode = zipandcountry.split(" ")[0];
   var country = zipandcountry.split(" ")[1];
   var mapURL = `https://api.mapbox.com/geocoding/v5/mapbox.places/${country}%20${zipcode}.json?access_token=${root.apiData.mapapiKey}`;
