@@ -1,4 +1,5 @@
-# lively-alve-revived
+# Alve revived wallpaper
+## A pixelart Lively & Wallpaper Engine Wallpaper
 Alve's Town animated wallpaper for [Lively](https://www.rocksdanister.com/lively/).
 
 Best suited for Wide-Screen but it is scalable/cropable to other resolutions.
