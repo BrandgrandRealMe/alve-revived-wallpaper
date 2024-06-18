@@ -6,7 +6,7 @@ Alve's Town animated wallpaper for [Lively](https://www.rocksdanister.com/lively
 Best suited for Wide-Screen but it is scalable/cropable to other resolutions.
 
 <picture>
-  <img src="https://github.com/BrandgrandRealMe/alve-revived-wallpaper/blob/main/preview.gif?raw=true">
+  <img src="https://github.com/BrandgrandRealMe/alve-revived-wallpaper/blob/main/Lively/preview.gif?raw=true">
 </picture>
 
 - Original Graphics by [Waneella](https://twitter.com/waneella_?lang=en) (commissioned by Valve for the Steam Springsale 2023; [Original GIF](https://cdn.akamai.steamstatic.com/steam/clusters/sale_spring2023/36a01fe4331ab0ca600ff205/page_bg_english.gif))
