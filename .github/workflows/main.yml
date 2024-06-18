@@ -34,5 +34,5 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ github.event.release.upload_url }}
-          asset_name: lively-${{ steps.get_version.outputs.VERSION }}.zip
+          asset_name: /lively-${{ steps.get_version.outputs.VERSION }}.zip
           asset_label: lively-wallpaper-${{ steps.get_version.outputs.VERSION }}
