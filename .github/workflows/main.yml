@@ -22,10 +22,9 @@ jobs:
           with: ${{ steps.get_version.outputs.VERSION }}
 
       - name: Zip folder
-        uses: mazda/github-action-zip@v2
+        uses: montudor/action-zip@v1
         with:
-          files: Lively/*  # Replace with the path to your folder
-          filename: lively-${{ steps.get_version.outputs.VERSION }}.zip  # Replace with desired zip filename
+          args: zip -qq -r lively-${{ steps.get_version.outputs.VERSION }}.zip Lively
 
       - name: Add zip to release assets
         uses: actions/upload-artifact@v3
