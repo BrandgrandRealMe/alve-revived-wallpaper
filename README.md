@@ -1,15 +1,12 @@
 # Alve revived wallpaper
-## A pixelart Lively & Wallpaper Engine Wallpaper
-Alve's Town animated wallpaper for [Lively](https://www.rocksdanister.com/lively/).
+### A pixelart Lively & Wallpaper Engine Wallpaper
+---
+Alve's Town animated wallpaper for [Lively](https://www.rocksdanister.com/lively/) and [Wallpaper Engine](https://www.wallpaperengine.io/en).
 
 Best suited for Wide-Screen but it is scalable/cropable to other resolutions.
 
-It features a realtime day-night cycle using the sunrise/-set in the weather API data. (or default properties when API is not used).
-
-It is (I would like it to be... still working on that) responsive to weather circumstances (brightness, clouds, rain, snow... etc.).
-
 <picture>
-  <img src="https://github.com/Gabrz/lively-alve/blob/main/preview.gif?raw=true">
+  <img src="https://github.com/BrandgrandRealMe/alve-revived-wallpaper/blob/main/preview.gif?raw=true">
 </picture>
 
 - Original Graphics by [Waneella](https://twitter.com/waneella_?lang=en) (commissioned by Valve for the Steam Springsale 2023; [Original GIF](https://cdn.akamai.steamstatic.com/steam/clusters/sale_spring2023/36a01fe4331ab0ca600ff205/page_bg_english.gif))
