@@ -25,12 +25,12 @@ jobs:
       - name: Zip folder
         uses: montudor/action-zip@v1
         with:
-          args: zip -qq -r lively-${{ steps.get_version.outputs.VERSION }}.zip Lively
+          args: zip -qq -r alve-revived-lively-${{ steps.get_version.outputs.VERSION }}.zip Lively
 
       - name: Upload Lively to Github release
         id: upload-release-asset 
         uses: Shopify/upload-to-release@v2.0.0
         with:
-          name: lively-wallpaper-${{ steps.get_version.outputs.VERSION }}
-          path: lively-${{ steps.get_version.outputs.VERSION }}.zip
+          name: alve-revived-lively-${{ steps.get_version.outputs.VERSION }}
+          path: alve-revived-lively-${{ steps.get_version.outputs.VERSION }}.zip
           repo-token: ${{ secrets.GITHUB_TOKEN }}
