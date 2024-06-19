@@ -1,5 +1,5 @@
 # Alve revived wallpaper
-### A pixelart Lively & Wallpaper Engine Wallpaper
+### A pixelart futureistic city Lively & Wallpaper Engine Wallpaper
 ---
 Alve's Town animated wallpaper for [Lively](https://www.rocksdanister.com/lively/) and [Wallpaper Engine](https://www.wallpaperengine.io/en).
 
