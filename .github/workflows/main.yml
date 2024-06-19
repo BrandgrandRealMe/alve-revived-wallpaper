@@ -45,14 +45,14 @@ jobs:
       - name: Upload Lively to Github release
         uses: Shopify/upload-to-release@v2.0.0
         with:
-          name: alve-revived-lively-${{ steps.get_version.outputs.VERSION }}
+          name: alve-revived-lively-${{ steps.get_version.outputs.VERSION }}.zip
           path: alve-revived-lively-${{ steps.get_version.outputs.VERSION }}.zip
           repo-token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Upload WE to Github release
         uses: Shopify/upload-to-release@v2.0.0
         with:
-          name: alve-revived-WallpaperEngine-${{ steps.get_version.outputs.VERSION }}
+          name: alve-revived-WallpaperEngine-${{ steps.get_version.outputs.VERSION }}.zip
           path: alve-revived-WallpaperEngine-${{ steps.get_version.outputs.VERSION }}.zip
           repo-token: ${{ secrets.GITHUB_TOKEN }}
 
