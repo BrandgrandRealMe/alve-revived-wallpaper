@@ -28,10 +28,33 @@ Best suited for Wide-Screen but it is scalable/cropable to other resolutions.
 
 Ta Da You have the wallpaper installed! :)
 
+### Wallpaper Engine
+
+Method 1
+> 1. Go to the [Release page](https://github.com/BrandgrandRealMe/alve-revived-wallpaper/releases)
+> 2. Click on the .zip file for the latest lively version and download it.
+> 3. Extract the folder from the zip
+> 4. Place folder in your "myprojects" folder ([How to find it](#how-to-find-wallpaper-engine-wallpaper-folder))
+
+Method 2
+> 1. Install from workshop [Here](https://steamcommunity.com/sharedfiles/filedetails/?id=3270677186)
+
+-----
+
 ## More
 
 ### How to find lively wallpaper folder
-1. Open lively wallapers
+1. Open lively wallaper
 2. Go to settings
 3. Click wallpaper Directory
 4. Click the open folder button
+
+### How to find wallpaper engine projects folder
+
+1. Open Steam
+2. Click Wallpaper Engine
+3. Click the settings icon
+4. Click Properties
+5. Click Installed files
+6. Click browse
+7. Goto Projects > myprojects
