@@ -30,16 +30,21 @@ jobs:
           replace: ${{ steps.get_version.outputs.VERSION }}
           regex: false
   
+      - name: Rename Lively folder
+        run: mv Lively alve-revived-lively-${{ steps.get_version.outputs.VERSION }}
+
+      - name: Rename WE 
+        run: mv WallpaperEngine alve-revived-WallpaperEngine-${{ steps.get_version.outputs.VERSION }}
 
       - name: Zip Lively folder
         uses: montudor/action-zip@v1
         with:
-          args: zip -qq -r alve-revived-lively-${{ steps.get_version.outputs.VERSION }}.zip Lively
+          args: zip -qq -r alve-revived-lively-${{ steps.get_version.outputs.VERSION }}.zip alve-revived-lively-${{ steps.get_version.outputs.VERSION }}
 
       - name: Zip WE folder
         uses: montudor/action-zip@v1
         with:
-          args: zip -qq -r alve-revived-WallpaperEngine-${{ steps.get_version.outputs.VERSION }}.zip WallpaperEngine
+          args: zip -qq -r alve-revived-WallpaperEngine-${{ steps.get_version.outputs.VERSION }}.zip alve-revived-WallpaperEngine-${{ steps.get_version.outputs.VERSION }}
 
 
       - name: Upload Lively to Github release
