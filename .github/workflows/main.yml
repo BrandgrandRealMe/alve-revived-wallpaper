@@ -30,29 +30,34 @@ jobs:
           replace: ${{ steps.get_version.outputs.VERSION }}
           regex: false
   
+      - name: Rename Lively folder
+        run: mv Lively alve-revived-lively-${{ steps.get_version.outputs.VERSION }}
+
+      - name: Rename WE 
+        run: mv WallpaperEngine alve-revived-WallpaperEngine-${{ steps.get_version.outputs.VERSION }}
 
       - name: Zip Lively folder
         uses: montudor/action-zip@v1
         with:
-          args: zip -qq -r alve-revived-lively-${{ steps.get_version.outputs.VERSION }}.zip Lively
+          args: zip -qq -r alve-revived-lively-${{ steps.get_version.outputs.VERSION }}.zip alve-revived-lively-${{ steps.get_version.outputs.VERSION }}
 
       - name: Zip WE folder
         uses: montudor/action-zip@v1
         with:
-          args: zip -qq -r alve-revived-WallpaperEngine-${{ steps.get_version.outputs.VERSION }}.zip WallpaperEngine
+          args: zip -qq -r alve-revived-WallpaperEngine-${{ steps.get_version.outputs.VERSION }}.zip alve-revived-WallpaperEngine-${{ steps.get_version.outputs.VERSION }}
 
 
       - name: Upload Lively to Github release
         uses: Shopify/upload-to-release@v2.0.0
         with:
-          name: alve-revived-lively-${{ steps.get_version.outputs.VERSION }}
+          name: alve-revived-lively-${{ steps.get_version.outputs.VERSION }}.zip
           path: alve-revived-lively-${{ steps.get_version.outputs.VERSION }}.zip
           repo-token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Upload WE to Github release
         uses: Shopify/upload-to-release@v2.0.0
         with:
-          name: alve-revived-WallpaperEngine-${{ steps.get_version.outputs.VERSION }}
+          name: alve-revived-WallpaperEngine-${{ steps.get_version.outputs.VERSION }}.zip
           path: alve-revived-WallpaperEngine-${{ steps.get_version.outputs.VERSION }}.zip
           repo-token: ${{ secrets.GITHUB_TOKEN }}
 
