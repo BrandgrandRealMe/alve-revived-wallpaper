@@ -288,5 +288,7 @@
 	"preview" : "preview.gif",
 	"title" : "Alve's Town - Revived",
 	"type" : "web",
+	"workshopid" : "3270677186",
+	"workshopurl" : "steam://url/CommunityFilePage/3270677186",
 	"version" : "{{ver}}"
 }
