@@ -1,294 +1,99 @@
 {
+	"contentrating" : "Everyone",
+	"description" : "Bring the iconic Matrix aesthetic to your desktop with this customizable Matrix rain live wallpaper. Immerse yourself in a cascading stream of green code, just like in the movie. Tweak various aspects of the animation to match your style, from the speed of the rain to the color scheme. Whether you're a die-hard Matrix fan or just love the techy vibe, this live wallpaper is sure to add a touch of cyberpunk flair to your screen.",
 	"file" : "index.html",
 	"general" : 
 	{
 		"properties" : 
 		{
-			"miscHour12" : 
+			"colorsBackground" : 
 			{
-				"index" : 13,
-				"order" : 113,
-				"text" : "12 Hour Clock",
-				"type" : "bool",
-				"value" : false
-			},
-			"miscSunrise" : 
-			{
-				"index" : 15,
-				"order" : 115,
-				"text" : "Default Sunrise Time",
-				"type" : "textinput",
-				"value" : "05:20"
-			},
-			"miscSunset" : 
-			{
-				"index" : 16,
-				"order" : 116,
-				"text" : "Default Sunset Time",
-				"type" : "textinput",
-				"value" : "22:00"
-			},
-			"sceneAnimation" : 
-			{
-				"index" : 2,
-				"order" : 102,
-				"text" : "Enable animation (CPU heavy)",
-				"type" : "bool",
-				"value" : false
-			},
-			"sceneColor" : 
-			{
-				"index" : 3,
-				"order" : 103,
-				"text" : "Font Color",
-				"type" : "color",
-				"value" : "0.9686274509803922 0.9764705882352941 0.9568627450980393"
-			},
-			"miscLanguage" : 
-			{
-				"index" : 14,
-				"options" : 
-				[
-					{
-					  "label": "Bahasa_Indonesia",
-					  "value": 0
-					},
-					{
-					  "label": "Bahasa_Melayu",
-					  "value": 1
-					},
-					{
-					  "label": "Bulgarian",
-					  "value": 2
-					},
-					{
-					  "label": "Chinese",
-					  "value": 3
-					},
-					{
-					  "label": "Croatian",
-					  "value": 4
-					},
-					{
-					  "label": "Czech",
-					  "value": 5
-					},
-					{
-					  "label": "Danish",
-					  "value": 6
-					},
-					{
-					  "label": "Dutch",
-					  "value": 7
-					},
-					{
-					  "label": "English_GB",
-					  "value": 8
-					},
-					{
-					  "label": "English_US",
-					  "value": 9
-					},
-					{
-					  "label": "Finnish",
-					  "value": 10
-					},
-					{
-					  "label": "French",
-					  "value": 11
-					},
-					{
-					  "label": "German",
-					  "value": 12
-					},
-					{
-					  "label": "Greek",
-					  "value": 13
-					},
-					{
-					  "label": "Hindi",
-					  "value": 14
-					},
-					{
-					  "label": "Hungarian",
-					  "value": 15
-					},
-					{
-					  "label": "Italian",
-					  "value": 16
-					},
-					{
-					  "label": "Japanese",
-					  "value": 17
-					},
-					{
-					  "label": "Korean",
-					  "value": 18
-					},
-					{
-					  "label": "Norwegian",
-					  "value": 19
-					},
-					{
-					  "label": "Polish",
-					  "value": 20
-					},
-					{
-					  "label": "Portuguese",
-					  "value": 21
-					},
-					{
-					  "label": "Romanian",
-					  "value": 22
-					},
-					{
-					  "label": "Russian",
-					  "value": 23
-					},
-					{
-					  "label": "Slovak",
-					  "value": 24
-					},
-					{
-					  "label": "Spanish",
-					  "value": 25
-					},
-					{
-					  "label": "Swedish",
-					  "value": 26
-					},
-					{
-					  "label": "Thai",
-					  "value": 27
-					},
-					{
-					  "label": "Turkish",
-					  "value": 28
-					},
-					{
-					  "label": "Ukrainian",
-					  "value": 29
-					},
-					{
-					  "label": "Vietnamese",
-					  "value": 30
-					}
-				  ],
-				"order" : 114,
-				"text" : "Language",
-				"type" : "combo",
-				"value" : 9
-			},
-			"weatherAddressInput" : 
-			{
-				"index" : 9,
-				"order" : 109,
-				"text" : "Location",
-				"type" : "textinput",
-				"value" : "132 My Street, Kingston, New York 12401 or US 12401"
-			},
-			"weathermapApiInput" : 
-			{
-				"index" : 8,
-				"order" : 108,
-				"text" : "Map API Key",
-				"type" : "textinput",
-				"value" : "mapbox.com key"
-			},
-			"sceneMargin" : 
-			{
-				"fraction" : true,
 				"index" : 1,
-				"max" : 25,
-				"min" : -25,
 				"order" : 101,
-				"precision" : 2,
-				"step" : 0.1,
-				"text" : "Margin",
-				"type" : "slider",
-				"value" : 0
+				"text" : "Background Color",
+				"type" : "color",
+				"value" : "0 0 0"
 			},
-			"misc" : 
-			{
-				"index" : 12,
-				"order" : 112,
-				"text" : "MISC",
-				"type" : "group",
-				"value" : ""
-			},
-			"weatherRefreshFreq" : 
-			{
-				"index" : 11,
-				"order" : 111,
-				"text" : "Refresh Frequency",
-				"type" : "textinput",
-				"value" : "60"
-			},
-			"scene" : 
-			{
-				"index" : 0,
-				"order" : 100,
-				"text" : "SCENE",
-				"type" : "group",
-				"value" : ""
-			},
-			"weathertempUnitInput" : 
-			{
-				"index" : 10,
-				"options" : 
-				[
-					{
-						"label" : "℉",
-						"value" : 0
-					},
-					{
-						"label" : "℃",
-						"value" : 1
-					}
-				],
-				"order" : 110,
-				"text" : "Select your temputure unit.",
-				"type" : "combo",
-				"value" : 0
-			},
-			"weatherShow" : 
-			{
-				"index" : 6,
-				"order" : 106,
-				"text" : "Show Weather",
-				"type" : "bool",
-				"value" : false
-			},
-			"weather" : 
-			{
-				"index" : 5,
-				"order" : 105,
-				"text" : "WEATHER",
-				"type" : "group",
-				"value" : ""
-			},
-			"weatherApiInput" : 
-			{
-				"index" : 7,
-				"order" : 107,
-				"text" : "Weather API Key",
-				"type" : "textinput",
-				"value" : "openweathermap.org key"
-			},
-			"sceneAdjustWeather" : 
+			"colorsEnableGradiant" : 
 			{
 				"index" : 4,
 				"order" : 104,
-				"text" : "(WIP) Adjust Scene to weather",
+				"text" : "Enable Gradient",
 				"type" : "bool",
 				"value" : false
+			},
+			"colorsForegroundPrimary" : 
+			{
+				"index" : 2,
+				"order" : 102,
+				"text" : "Foreground Primary Color",
+				"type" : "color",
+				"value" : "0 1 0"
+			},
+			"colorsForegroundSecondary" : 
+			{
+				"index" : 3,
+				"order" : 103,
+				"text" : "Foreground Secondary Color",
+				"type" : "color",
+				"value" : "0 255 0"
+			},
+			"colorsLabel" : 
+			{
+				"index" : 0,
+				"order" : 100,
+				"text" : "Colors",
+				"type" : "group"
+			},
+			"miscCharacters" : 
+			{
+				"index" : 6,
+				"order" : 106,
+				"text" : "Characters",
+				"type" : "textinput",
+				"value" : "ABCDEFGHIJKLMNOPQRSTUVXYZABCDEFGHIJKLMNOPQRSTUVXYZABCDEFGHIJKLMNOPQRSTUVXYZABCDEFGHIJKLMNOPQRSTUVXYZABCDEFGHIJKLMNOPQRSTUVXYZABCDEFGHIJKLMNOPQRSTUVXYZ"
+			},
+			"miscFallSpeed" : 
+			{
+				"index" : 7,
+				"max" : 100,
+				"min" : 1,
+				"order" : 107,
+				"precision" : 5,
+				"step" : 1,
+				"text" : "Fall speed",
+				"type" : "slider",
+				"value" : 68
+			},
+			"miscLabel" : 
+			{
+				"index" : 5,
+				"order" : 105,
+				"text" : "MISC",
+				"type" : "group"
+			},
+			"miscSymbolSize" : 
+			{
+				"index" : 8,
+				"order" : 108,
+				"text" : "Symbol size",
+				"type" : "textinput",
+				"value" : 15
+			},
+			"schemecolor" : 
+			{
+				"order" : 0,
+				"text" : "ui_browse_properties_scheme_color",
+				"type" : "color",
+				"value" : "0 0 0"
 			}
 		}
 	},
 	"preview" : "preview.gif",
-	"title" : "Alve's Town - Revived",
-	"type" : "web",
-	"workshopid" : "3270677186",
-	"workshopurl" : "steam://url/CommunityFilePage/3270677186",
+	"ratingsex" : "none",
+	"ratingviolence" : "none",
+	"tags" : [ "Sci-Fi" ],
+	"title" : "Matrix",
+	"type" : "Web",
 	"version" : "{{ver}}"
 }
